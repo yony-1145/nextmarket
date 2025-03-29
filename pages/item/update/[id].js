@@ -11,7 +11,7 @@ const UpdateItem = (props)=> {
     const handleSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await fetch(`nextmarket-ten.vercel.app/api/item/update/${props.singleItem._id}`,{
+            const response = await fetch(`https://nextmarket-ten.vercel.app/api/item/update/${props.singleItem._id}`,{
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -60,7 +60,7 @@ export default UpdateItem
 
 export const getServerSideProps = async(context) => {
     try{
-        const response = await fetch(`nextmarket-ten.vercel.app/api/item/${context.query.id}`)
+        const response = await fetch(`https://nextmarket-ten.vercel.app/api/item/${context.query.id}`)
         const singleItem = await response.json()
     
         return{

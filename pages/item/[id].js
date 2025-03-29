@@ -26,7 +26,7 @@ export default ReadSingleItem
 
 export const getServerSideProps = async(context) => {
     console.log('context:',context.query.id)
-    const response = await fetch(`nextmarket-ten.vercel.app/api/item/${context.query.id}`)
+    const response = await fetch(`https://nextmarket-ten.vercel.app/api/item/${context.query.id}`)
     console.log('response:',response)
     const singleItem = await response.json()
     console.log('singleItem:',singleItem)

@@ -25,7 +25,7 @@ const ReadAllItems = (props) =>{
 export default ReadAllItems
 
 export const getServerSideProps = async() => {
-    const response = await fetch("nextmarket-ten.vercel.app/api/item/readall")
+    const response = await fetch("https://nextmarket-ten.vercel.app/api/item/readall")
     const allItems = await response.json()
     return {
         props: allItems

@@ -14,11 +14,11 @@ pnpm dev
 bun dev
 ```
 
-Open [nextmarket-ten.vercel.app](nextmarket-ten.vercel.app) with your browser to see the result.
+Open [https://nextmarket-ten.vercel.app](https://nextmarket-ten.vercel.app) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [nextmarket-ten.vercel.app/api/hello](nextmarket-ten.vercel.app/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [https://nextmarket-ten.vercel.app/api/hello](https://nextmarket-ten.vercel.app/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 

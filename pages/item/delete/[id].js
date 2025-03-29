@@ -6,7 +6,7 @@ const DeleteItem = (props)=> {
     const handleSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await fetch(`nextmarket-ten.vercel.app/api/item/delete/${props.singleItem._id}`,{
+            const response = await fetch(`https://nextmarket-ten.vercel.app/api/item/delete/${props.singleItem._id}`,{
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -49,7 +49,7 @@ export default DeleteItem
 
 export const getServerSideProps = async(context) => {
     try{
-        const response = await fetch(`nextmarket-ten.vercel.app/api/item/${context.query.id}`)
+        const response = await fetch(`https://nextmarket-ten.vercel.app/api/item/${context.query.id}`)
         const singleItem = await response.json()
     
         return{
