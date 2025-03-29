@@ -1,4 +1,6 @@
 import { useState } from "react"
+import useAuth from "../../../utils/useAuth"
+import Head from "next/head"
 
 const UpdateItem = (props)=> {
     const [title, setTitle] = useState(props.singleItem.title)
@@ -9,7 +11,7 @@ const UpdateItem = (props)=> {
     const handleSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await fetch(`http://localhost:3000/api/item/update/${props.singleItem._id}`,{
+            const response = await fetch(`nextmarket-ten.vercel.app/api/item/update/${props.singleItem._id}`,{
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -30,25 +32,35 @@ const UpdateItem = (props)=> {
         }
     }
 
-    return(
-        <div>
-            <h1>Item Eddit</h1>
-            <form onSubmit={handleSubmit}>
-                <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="Item Name" required/>
-                <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" name="price" placeholder="Price" required/>
-                <input value={image} onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="image" required/>
-                <textarea value={description} onChange={(e) => setDescription(e.target.value)} name="description" rows={15} placeholder="Item Description" required/>
-                <button>Editt</button>
-            </form>
-        </div>
-    )
+    const loginUser = useAuth()
+
+    if(loginUser){
+        return(
+            <div>
+                <Head><title>Item Eddit</title></Head>
+                <h1 className="page-title">Item Eddit</h1>
+                <form onSubmit={handleSubmit}>
+                    <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="Item Name" required/>
+                    <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" name="price" placeholder="Price" required/>
+                    <input value={image} onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="image" required/>
+                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} name="description" rows={15} placeholder="Item Description" required/>
+                    <button>Editt</button>
+                </form>
+            </div>
+        )
+    }else{
+        return(
+            <h1>You cant eddit this item.</h1>
+        )
+    }
+
 }
 
 export default UpdateItem
 
 export const getServerSideProps = async(context) => {
     try{
-        const response = await fetch(`http://localhost:3000/api/item/${context.query.id}`)
+        const response = await fetch(`nextmarket-ten.vercel.app/api/item/${context.query.id}`)
         const singleItem = await response.json()
     
         return{

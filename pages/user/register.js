@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Head from "next/head"
 
 const Register = () => {
     // const [name, setName] = useState("")
@@ -21,7 +22,7 @@ const Register = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await fetch("http://localhost:3000/api/user/register",{
+            const response = await fetch("nextmarket-ten.vercel.app/api/user/register",{
                 method:"POST",
                 headers:{
                     "Accept": "application/json",
@@ -38,7 +39,8 @@ const Register = () => {
 
     return (
         <div>
-            <h1>User Registration</h1>
+            <Head><title>User Registration</title></Head>
+            <h1 className="page-titile">User Registration</h1>
             <form onSubmit={handleSubmit}>
                 <input value={newUser.name} onChange={handleChange}
                     type="text" name="name" placeholder="Name" required/>
