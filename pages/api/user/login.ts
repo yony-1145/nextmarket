@@ -16,7 +16,7 @@ const loginUser = async(req: ExtendedNextApiRequestUser, res: NextApiResponse<Re
                     email: req.body.email
                 }
                 const token = jwt.sign(payload, secret_key, {expiresIn: "23h"})
-                console.log(token)
+                console.log("token:", token)
                 return res.status(200).json({message: "Succsessed  login",token: token})
             }else{
                 return res.status(400).json({message: "Failed login: Password is Incorrect"})

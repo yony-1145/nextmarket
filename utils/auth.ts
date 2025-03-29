@@ -9,10 +9,8 @@ const auth = (handler: Function) => {
         if(req.method === "GET"){
             return handler(req, res)
         }
-
-        const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhleUB0ZXN0LmNvbSIsImlhdCI6MTc0MjQ0NzA3MSwiZXhwIjoxNzQyNTI5ODcxfQ.xk492zA35BzdoGz3Y3QREY7Ts0dMZS3VKmOS06IhYqg"
     
-        // const token = await req.headers.authorization.split(" ")[1]
+        const token = req.headers.authorization.split(" ")[1]
         
         if(!token){
             return res.status(401).json({message: "No token"})
