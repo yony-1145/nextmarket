@@ -10,7 +10,7 @@ const ReadAllItems = (props) =>{
             {props.allItems.map(item =>
                 <Link href={`/item/${item._id}`} key={item._id}>
                         <div className="texts-area">
-                            <img src={item.image} width={750} height={500} alt="item-image"/>
+                            <Image src={item.image} width={750} height={500} alt="item-image"/>
                             <h2>{item.price}</h2>
                             <h3>{item.title}</h3>
                             <p>{item.description.substring(0, 80)}...</p>

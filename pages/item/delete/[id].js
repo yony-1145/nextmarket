@@ -39,7 +39,7 @@ const DeleteItem = (props)=> {
         )
     }else{
         return(
-            <h1>You can't delete this item</h1>
+            <h1>You cant delete this item</h1>
         )
     }
 

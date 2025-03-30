@@ -1,9 +1,10 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const Header = () => {
     return (
         <header>
-            <div><Link href="/"><img src="/header.svg" alt="header-img"/></Link></div>
+            <div><Link href="/"><Image src="/header.svg" alt="header-img"/></Link></div>
             <nav>
                 <ul>
                     <li><Link href="/user/register">登録</Link></li>
